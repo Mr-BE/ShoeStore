@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="text_new_user">New User?</string>
+
+    <string name="string_welcome_message">Welcome to Shoes</string>
+    <string name="string_catchphrase"> The one-stop shop for all your footwear needs </string>
+    <string name="string_proceed">Proceed</string>
+    <string name="string_start_viewing">Start Viewing</string>
+    <string name="fab">Floating Action Button</string>
+    <string name="string_shoe_details">Shoe Details</string>
+    <string name="shoe_name">Shoe name</string>
+    <string name="company_name">Company name</string>
+    <string name="shoe_size">Shoe size</string>
+    <string name="shoe_desc">Description</string>
+    <string name="string_save">Save</string>
+    <string name="string_undo">Undo</string>
+    <string name="string_mock_size">10.5</string>
+    <string name="random_text">"A boot, plural boots, is a type of specific footwear. Most boots mainly cover the foot and the ankle, while some also cover some part of the lower calf. Some boots extend up the leg, sometimes as far as the knee or even the hip. Most boots have a heel that is clearly distinguishable from the rest of the sole, even if the two are made of one piece. Traditionally made of leather or rubber, modern boots are made from a variety of materials. Boots are worn both for their functionality – protecting the foot and leg from water, extreme cold, mud or hazards (e.g., work boots may protect wearers from chemicals or use a steel toe) or providing additional ankle support for strenuous activities with added traction requirements (e.g., hiking), or may have hobnails on their undersides to protect against wear and to get better grip; and for reasons of style and fashion. "</string>
+    <string name="log_out">Log out</string>
+    <string name="string_cancel">Cancel</string>
+    <string name="instruction_head">Before you proceed, there are a few handy pointers we would love to share :)</string>
+    <string name="instructions">* View as many shoes as you can \n * Feel free to add as many of yours as you would love to \n * Have a wonderful viewing :D</string>
+</resources>
