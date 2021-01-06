@@ -42,17 +42,17 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp()
     }
 
-    //Create menu item
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-         super.onCreateOptionsMenu(menu)
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.options_menu, menu)
-        return true
-    }
-
-    //handle menu click event
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item,
-        this.findNavController(R.id.myNavHostFragment)) || super.onOptionsItemSelected(item)
-    }
+//    //Create menu item
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//         super.onCreateOptionsMenu(menu)
+//        val inflater: MenuInflater = menuInflater
+//        inflater.inflate(R.menu.options_menu, menu)
+//        return true
+//    }
+//
+//    //handle menu click event
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        return NavigationUI.onNavDestinationSelected(item,
+//        this.findNavController(R.id.myNavHostFragment)) || super.onOptionsItemSelected(item)
+//    }
 }

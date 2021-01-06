@@ -5,9 +5,16 @@
 
     <data>
 
+        <variable
+            name="shoeVariable"
+            type="com.udacity.shoestore.models.Shoe" />
+
+        <variable
+            name="shoeViewModel"
+            type="com.udacity.shoestore.data.ShoeViewModel" />
 
     </data>
-
+    <!--Constraint layout was used here for the chain feature-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraint_details"
         android:layout_width="match_parent"
@@ -31,11 +38,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/gap_margin"
             android:autofillHints=""
-
             android:ems="10"
             android:hint="@string/shoe_desc"
             android:inputType="textPersonName"
             android:padding="@dimen/small_padding"
+            android:text="@{shoeVariable.description}"
             app:layout_constraintBottom_toTopOf="@+id/button_save"
             app:layout_constraintEnd_toEndOf="@+id/edit_text_shoe_size"
             app:layout_constraintHorizontal_bias="0.5"
@@ -50,11 +57,11 @@
             android:layout_marginTop="@dimen/small_padding"
             android:layout_marginEnd="@dimen/big_gap_margin"
             android:autofillHints=""
-
             android:ems="10"
             android:hint="@string/shoe_name"
             android:inputType="textPersonName"
             android:padding="@dimen/small_padding"
+            android:text="@{shoeVariable.name}"
             app:layout_constraintBottom_toTopOf="@+id/edit_text_company_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -68,11 +75,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/gap_margin"
             android:autofillHints=""
-
             android:ems="10"
+
             android:hint="@string/company_name"
             android:inputType="textPersonName"
             android:padding="@dimen/small_padding"
+            android:text="@{shoeVariable.company}"
             app:layout_constraintBottom_toTopOf="@+id/edit_text_shoe_size"
             app:layout_constraintEnd_toEndOf="@+id/edit_text_shoe_name"
             app:layout_constraintHorizontal_bias="0.0"
@@ -85,11 +93,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/gap_margin"
             android:autofillHints=""
-
             android:ems="10"
+
             android:hint="@string/shoe_size"
             android:inputType="number"
             android:padding="@dimen/small_padding"
+            android:text="@{String.valueOf(shoeVariable.size)}"
             app:layout_constraintBottom_toTopOf="@+id/edit_text_shoe_desc"
             app:layout_constraintEnd_toEndOf="@+id/edit_text_company_name"
             app:layout_constraintHorizontal_bias="0.5"
@@ -101,6 +110,7 @@
             style="@style/mainButtonStyle"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
+            android:onClick="@{()->shoeViewModel.getShoeInput(shoeVariable)}"
             android:text="@string/string_save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -30,17 +30,13 @@ class DetailsFragment : Fragment() {
         )
 
 
-        //onClick Save button
-        binding.buttonSave.setOnClickListener {
+        //attach binding to view model
+        binding.shoeViewModel = viewModel
 
-            //Extract user input
-            val name = binding.editTextShoeName.text.toString()
-            val company = binding.editTextCompanyName.text.toString()
-            val size = binding.editTextShoeSize.text.toString()
-            val desc = binding.editTextShoeDesc.text.toString()
-            viewModel.getUserInput(name, size.toDouble(), company, desc)
+        //make data binding lifecycle aware
+        binding.lifecycleOwner = this
+        binding.shoeVariable = viewModel.boundShoe
 
-        }
 
         //Save event observer
         viewModel.eventOnSave.observe(viewLifecycleOwner, Observer { hasSaved ->
@@ -51,9 +47,8 @@ class DetailsFragment : Fragment() {
         })
 
         //cancel button
-        binding.buttonCancel.setOnClickListener { view ->
-            view.findNavController().navigate(
-                DetailsFragmentDirections.actionDetailsFragmentToShoeListFragment())
+        binding.buttonCancel.setOnClickListener {
+            saveComplete()
         }
 
 

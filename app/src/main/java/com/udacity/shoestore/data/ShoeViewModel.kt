@@ -4,17 +4,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.udacity.shoestore.models.Shoe
+import timber.log.Timber
 
-class ShoeViewModel: ViewModel() {
+class ShoeViewModel : ViewModel() {
 
     //List of shoes
     private lateinit var shoeList: MutableList<Shoe>
 
-    //Shoe details
-    lateinit var shoeName: String
-    lateinit var companyName: String
-    var shoeSize: Double =0.0
-    lateinit var shoeDescr: String
+    //shoe var
+    lateinit var boundShoe: Shoe
 
     //shoe list live data
     private val _shoes = MutableLiveData<List<Shoe>>()
@@ -24,13 +22,14 @@ class ShoeViewModel: ViewModel() {
     //Save event
     private val _eventOnSave = MutableLiveData<Boolean>()
     val eventOnSave: LiveData<Boolean>
-    get() = _eventOnSave
+        get() = _eventOnSave
 
 
-            /*Init block*/
+    /*Init block*/
     init {
+        boundShoe = Shoe("", 0.0, "", "")
         initShoeList()
-        getShoeDetails()
+
     }
 
 
@@ -38,39 +37,30 @@ class ShoeViewModel: ViewModel() {
     private fun initShoeList() {
 
         val shoeAnkle = Shoe(
-            "Ankle Boots", 9.5, "Gucci", " hot boots")
+            "Ankle Boots", 9.5, "Gucci", " hot boots"
+        )
 
         val shoeBallet = Shoe(
-            "Ballet Shoe", 6.0, "Company", "la la la")
+            "Ballet Shoe", 6.0, "Company", "la la la"
+        )
 
-       shoeList = mutableListOf(shoeAnkle, shoeBallet)
+        shoeList = mutableListOf(shoeAnkle, shoeBallet)
 
 
     }
-
-    //Extract individual shoe details
-    fun getShoeDetails() {
-
-        for (i in shoeList) {
-            shoeName = i.name
-            shoeSize = i.size
-            companyName = i.company
-            shoeDescr = i.description
-        }
-        _shoes.value = shoeList
-    }
-
 
     //get user input details
-    fun getUserInput(name: String, size:Double, company: String, descr: String) {
+    fun getShoeInput(shoe: Shoe) {
+        Timber.i("Bound Shoe values are: ${boundShoe.name}, ${boundShoe.size}, ${boundShoe.company}, ${boundShoe.description}")
+        boundShoe = shoe
+        shoeList.add(boundShoe)
         _eventOnSave.value = true
-        shoeList.add(Shoe(name,size,company,descr))
         onSaveComplete()
 
     }
 
     //Done saving; clear event
-     fun onSaveComplete() {
+    fun onSaveComplete() {
         _eventOnSave.value = false
     }
 }

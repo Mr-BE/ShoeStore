@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-
+<!--    Constraint layout used here to size button appropriately-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
@@ -23,6 +23,7 @@
         <TextView
             android:id="@+id/text_catchphrase"
             style="@style/headingTwoTextStyle"
+            android:layout_width="match_parent"
             android:text="@string/string_catchphrase"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -3,24 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-    </data>
-
+<!--    Constraint layout was used here to accommodate the floating action button -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraint_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="@dimen/big_gap_margin"
+
         tools:context=".ShoeListFragment">
 
         <!--    Shoe list-->
-
         <ScrollView
             android:id="@+id/shoe_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/gap_margin"
+            android:paddingTop="@dimen/gap_margin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -28,35 +24,12 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0">
 
+<!--            Linear layout as specified in project rubrics-->
             <LinearLayout
+                android:id="@+id/list_linear_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/shoe_name"
-                    style="@style/headingTextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/small_padding"
-                    android:textStyle="bold"
-                    tools:text="@string/shoe_name" />
-
-                <TextView
-                    android:id="@+id/shoe_company_name"
-                    style="@style/bodyTextStyle"
-                    tools:text="@string/company_name" />
-
-                <TextView
-                    android:id="@+id/shoe_size"
-                    style="@style/bodyTextStyle"
-                    tools:text="@string/string_mock_size" />
-
-                <TextView
-                    android:id="@+id/shoe_description"
-                    style="@style/bodyTextStyle"
-                    android:lineSpacingMultiplier="1"
-                    tools:text="@string/random_text" />
             </LinearLayout>
 
         </ScrollView>

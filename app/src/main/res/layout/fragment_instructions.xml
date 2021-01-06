@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+<!--    The choice of constraint layer will purely a personal one due to its modern features-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
@@ -28,6 +29,7 @@
         <TextView
             android:id="@+id/textView2"
             style="@style/headingTwoTextStyle"
+            android:layout_width="match_parent"
             android:layout_marginTop="@dimen/gap_margin"
             android:lineSpacingMultiplier="3"
             android:text="@string/instructions"
