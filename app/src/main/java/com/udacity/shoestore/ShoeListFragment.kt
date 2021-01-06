@@ -26,7 +26,7 @@ class ShoeListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_shoe_list, container, false
         )
@@ -42,23 +42,7 @@ class ShoeListFragment : Fragment() {
         viewModel.shoes.observe(viewLifecycleOwner, Observer { newShoe ->
 
             for (i in newShoe) {
-//
-                val textShoeName = TextView(this.context)
-                textShoeName.text = i.name
-
-                val textShoeCompany = TextView(this.context)
-                textShoeCompany.text = i.company
-
-                val textShoeSize = TextView(this.context)
-                textShoeSize.text = i.size.toString()
-
-                val textShoeDesc = TextView(this.context)
-                textShoeDesc.text = i.description
-
-                binding.listLinearLayout.addView(textShoeName)
-                binding.listLinearLayout.addView(textShoeCompany)
-                binding.listLinearLayout.addView(textShoeSize)
-                binding.listLinearLayout.addView(textShoeDesc)
+                addShoe(i)
 
             }
             Timber.i("number of shoes are: ${newShoe.size}")
@@ -71,15 +55,27 @@ class ShoeListFragment : Fragment() {
 
     //Add individual shoes
     private fun addShoe(shoe: Shoe) {
+
         val layoutShoeItem = layoutInflater.inflate(
             R.layout.item_shoe, binding.listLinearLayout, false
         )
+                val textShoeName = TextView(this.context)
+                textShoeName.text = shoe.name
 
-        layoutShoeItem.item_shoe_name.text = shoe.name ?: "New shoe"
-        layoutShoeItem.item_shoe_company.text = shoe.company ?: "New company"
-        layoutShoeItem.item_shoe_size.text = shoe.size.toString() ?: "11.0"
-        layoutShoeItem.item_shoe_description.text = shoe.description ?: "New description"
+                val textShoeCompany = TextView(this.context)
+                textShoeCompany.text = shoe.company
 
+                val textShoeSize = TextView(this.context)
+                textShoeSize.text = shoe.size.toString()
+
+                val textShoeDesc = TextView(this.context)
+                textShoeDesc.text = shoe.description
+
+        layoutShoeItem.item_shoe_name.text = shoe.name
+        layoutShoeItem.item_shoe_company.text = shoe.company
+        layoutShoeItem.item_shoe_size.text = shoe.size.toString()
+        layoutShoeItem.item_shoe_description.text = shoe.description
+        binding.listLinearLayout.addView(layoutShoeItem)
     }
 
     //Create menu

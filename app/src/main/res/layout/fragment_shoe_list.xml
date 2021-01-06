@@ -3,12 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!--    Constraint layout was used here to accommodate the floating action button -->
+    <!--    Constraint layout was used here to position the floating action button to specific point-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraint_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         tools:context=".ShoeListFragment">
 
         <!--    Shoe list-->
@@ -16,7 +15,7 @@
             android:id="@+id/shoe_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="@dimen/gap_margin"
+            android:paddingTop="@dimen/small_padding"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -29,7 +28,9 @@
                 android:id="@+id/list_linear_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical">
+                <include layout="@layout/item_shoe"/>
+            </LinearLayout>
 
         </ScrollView>
 
