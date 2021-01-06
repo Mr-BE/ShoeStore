@@ -2,11 +2,9 @@ package com.udacity.shoestore
 
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
-import android.widget.LinearLayout
-import android.widget.ScrollView
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
@@ -14,8 +12,6 @@ import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.data.ShoeViewModel
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.models.Shoe
-import kotlinx.android.synthetic.main.fragment_shoe_list.*
-import kotlinx.android.synthetic.main.fragment_shoe_list.view.*
 import kotlinx.android.synthetic.main.item_shoe.view.*
 import timber.log.Timber
 
@@ -31,7 +27,7 @@ class ShoeListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-         binding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_shoe_list, container, false
         )
 
@@ -65,7 +61,7 @@ class ShoeListFragment : Fragment() {
                 binding.listLinearLayout.addView(textShoeDesc)
 
             }
-                    Timber.i("number of shoes are: ${newShoe.size}")
+            Timber.i("number of shoes are: ${newShoe.size}")
         })
         //Inform android about menu
         setHasOptionsMenu(true)
@@ -76,12 +72,13 @@ class ShoeListFragment : Fragment() {
     //Add individual shoes
     private fun addShoe(shoe: Shoe) {
         val layoutShoeItem = layoutInflater.inflate(
-            R.layout.item_shoe, binding.listLinearLayout, false)
+            R.layout.item_shoe, binding.listLinearLayout, false
+        )
 
-        layoutShoeItem.item_shoe_name.text = shoe.name?:"New shoe"
+        layoutShoeItem.item_shoe_name.text = shoe.name ?: "New shoe"
         layoutShoeItem.item_shoe_company.text = shoe.company ?: "New company"
         layoutShoeItem.item_shoe_size.text = shoe.size.toString() ?: "11.0"
-        layoutShoeItem.item_shoe_description.text = shoe.description?: "New description"
+        layoutShoeItem.item_shoe_description.text = shoe.description ?: "New description"
 
     }
 
@@ -93,8 +90,10 @@ class ShoeListFragment : Fragment() {
 
     //Handle menu navigation event
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item,
-            requireView().findNavController())
+        return NavigationUI.onNavDestinationSelected(
+            item,
+            requireView().findNavController()
+        )
                 || super.onOptionsItemSelected(item)
     }
 }

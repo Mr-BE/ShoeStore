@@ -29,7 +29,6 @@ class ShoeViewModel : ViewModel() {
     init {
         boundShoe = Shoe("", 0.0, "", "")
         initShoeList()
-
     }
 
 
@@ -45,7 +44,7 @@ class ShoeViewModel : ViewModel() {
         )
 
         shoeList = mutableListOf(shoeAnkle, shoeBallet)
-
+        _shoes.value = shoeList
 
     }
 
@@ -54,9 +53,9 @@ class ShoeViewModel : ViewModel() {
         Timber.i("Bound Shoe values are: ${boundShoe.name}, ${boundShoe.size}, ${boundShoe.company}, ${boundShoe.description}")
         boundShoe = shoe
         shoeList.add(boundShoe)
+        _shoes.value = shoeList
         _eventOnSave.value = true
         onSaveComplete()
-
     }
 
     //Done saving; clear event

@@ -1,10 +1,7 @@
 package com.udacity.shoestore
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -20,7 +17,8 @@ class MainActivity : AppCompatActivity() {
 
         //set up binding
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(
-            this, R.layout.activity_main)
+            this, R.layout.activity_main
+        )
 
         setSupportActionBar(binding.toolbar)
 
@@ -32,7 +30,6 @@ class MainActivity : AppCompatActivity() {
 //        val navController = this.findNavController(R.id.myNavHostFragment)
         val navController = navHostFragment.navController
         NavigationUI.setupActionBarWithNavController(this, navController)
-
 
 
     }

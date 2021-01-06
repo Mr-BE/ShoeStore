@@ -8,11 +8,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.data.ShoeViewModel
 import com.udacity.shoestore.databinding.FragmentDetailsBinding
-import timber.log.Timber
 
 class DetailsFragment : Fragment() {
 
@@ -29,13 +27,14 @@ class DetailsFragment : Fragment() {
             inflater, R.layout.fragment_details, container, false
         )
 
-
         //attach binding to view model
         binding.shoeViewModel = viewModel
 
+        //attach shoe variable
+        binding.shoeVariable = viewModel.boundShoe
+
         //make data binding lifecycle aware
         binding.lifecycleOwner = this
-        binding.shoeVariable = viewModel.boundShoe
 
 
         //Save event observer
@@ -50,8 +49,6 @@ class DetailsFragment : Fragment() {
         binding.buttonCancel.setOnClickListener {
             saveComplete()
         }
-
-
 
         return binding.root
     }
