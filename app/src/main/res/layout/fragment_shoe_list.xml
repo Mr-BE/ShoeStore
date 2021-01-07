@@ -23,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0">
 
-            <!--            Linear layout as specified in project rubrics-->
+            <!--Linear layout used to hold a simple vertical list -->
             <LinearLayout
                 android:id="@+id/list_linear_layout"
                 android:layout_width="match_parent"

@@ -39,6 +39,8 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp()
     }
 
+    /* Code could be used for a future feature such as implementing an activity-wide menu item */
+
 //    //Create menu item
 //    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 //         super.onCreateOptionsMenu(menu)
