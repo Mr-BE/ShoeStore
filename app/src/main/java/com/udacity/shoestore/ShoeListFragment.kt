@@ -9,9 +9,9 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.udacity.shoestore.data.Shoe
 import com.udacity.shoestore.data.ShoeViewModel
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
-import com.udacity.shoestore.models.Shoe
 import kotlinx.android.synthetic.main.item_shoe.view.*
 import timber.log.Timber
 

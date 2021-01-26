@@ -7,7 +7,7 @@
 
         <variable
             name="shoeVariable"
-            type="com.udacity.shoestore.models.Shoe" />
+            type="com.udacity.shoestore.data.Shoe" />
 
         <variable
             name="shoeViewModel"

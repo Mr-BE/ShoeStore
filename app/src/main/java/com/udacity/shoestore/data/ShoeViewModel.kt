@@ -3,7 +3,6 @@ package com.udacity.shoestore.data
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.udacity.shoestore.models.Shoe
 import timber.log.Timber
 
 class ShoeViewModel : ViewModel() {
@@ -27,7 +26,7 @@ class ShoeViewModel : ViewModel() {
 
     /*Init block*/
     init {
-        boundShoe = Shoe("", 0.0, "", "")
+        boundShoe = Shoe(1, "", "", 0.0, "")
         initShoeList()
     }
 
@@ -35,16 +34,16 @@ class ShoeViewModel : ViewModel() {
     //Populate list of shoes
     private fun initShoeList() {
 
-        val shoeAnkle = Shoe(
-            "Ankle Boots", 9.5, "Gucci", " hot boots"
-        )
-
-        val shoeBallet = Shoe(
-            "Ballet Shoe", 6.0, "Company", "la la la"
-        )
-
-        shoeList = mutableListOf(shoeAnkle, shoeBallet)
-        _shoes.value = shoeList
+//        val shoeAnkle = Shoe(
+//            "Ankle Boots", 9.5, "Gucci", " hot boots"
+//        )
+//
+//        val shoeBallet = Shoe(
+//            "Ballet Shoe", 6.0, "Company", "la la la"
+//        )
+//
+//        shoeList = mutableListOf(shoeAnkle, shoeBallet)
+//        _shoes.value = shoeList
 
     }
 
