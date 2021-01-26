@@ -1,49 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-<!--Linear layout used to hold a simple vertical list of items-->
-    <LinearLayout
+    <data>
+
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.data.Shoe" />
+    </data>
+
+    <!--Linear layout used to hold a simple vertical list of items-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="@dimen/small_padding">
+        android:layout_margin="@dimen/small_padding"
+        android:padding="@dimen/small_padding"
+        app:layout_constraintBottom_toBottomOf="@+id/item_shoe_company"
+        app:layout_constraintTop_toBottomOf="@+id/item_shoe_company">
 
         <TextView
             android:id="@+id/item_shoe_name"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="@dimen/small_padding"
+            app:layout_constraintBottom_toTopOf="@+id/item_shoe_company"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/imageView"
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            app:shoeNameBound="@{shoe}"
             tools:text="@string/shoe_name" />
 
         <TextView
             android:id="@+id/item_shoe_company"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="@dimen/small_padding"
+            app:layout_constraintBottom_toTopOf="@+id/item_shoe_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/item_shoe_name"
+            app:shoeCompanyBound="@{shoe}"
             tools:text="@string/company_name" />
 
         <TextView
             android:id="@+id/item_shoe_size"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="@dimen/small_padding"
+            app:layout_constraintBottom_toTopOf="@+id/item_shoe_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/item_shoe_company"
+            app:shoeSizeBound="@{shoe}"
             tools:text="@string/shoe_size" />
 
         <TextView
             android:id="@+id/item_shoe_description"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="@dimen/small_padding"
+            android:layout_marginBottom="@dimen/small_padding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/item_shoe_size"
+            app:shoeDescBound="@{shoe}"
             tools:text="@string/shoe_desc" />
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

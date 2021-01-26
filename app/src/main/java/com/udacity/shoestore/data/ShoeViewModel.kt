@@ -34,16 +34,16 @@ class ShoeViewModel : ViewModel() {
     //Populate list of shoes
     private fun initShoeList() {
 
-//        val shoeAnkle = Shoe(
-//            "Ankle Boots", 9.5, "Gucci", " hot boots"
-//        )
-//
-//        val shoeBallet = Shoe(
-//            "Ballet Shoe", 6.0, "Company", "la la la"
-//        )
-//
-//        shoeList = mutableListOf(shoeAnkle, shoeBallet)
-//        _shoes.value = shoeList
+        val shoeAnkle = Shoe(
+            1, "Ankle Boots", "Gucci", 9.5, " hot boots"
+        )
+
+        val shoeBallet = Shoe(
+            2, "Ballet Shoe", "Company", 6.0, "la la la"
+        )
+
+        shoeList = mutableListOf(shoeAnkle, shoeBallet)
+        _shoes.value = shoeList
 
     }
 
